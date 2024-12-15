@@ -1,0 +1,73 @@
+[System]
+Name='Asthma Detection System'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=27
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Puff_Frequency'
+Range=[0 28]
+NumMFs=3
+MF1='Low':'trimf',[0 0 12]
+MF2='Moderate':'trimf',[7 13.5 20]
+MF3='High':'trimf',[15 28 28]
+
+[Input2]
+Name='Symptoms_Frequency'
+Range=[0 18]
+NumMFs=3
+MF1='Low':'trimf',[0 0 7]
+MF2='Moderate':'trimf',[5 9.5 14]
+MF3='High':'trimf',[11 18 18]
+
+[Input3]
+Name='FEV1/FVC_Ratio'
+Range=[0 2.2]
+NumMFs=3
+MF1='Low':'trimf',[0 0 0.9]
+MF2='Moderate':'trimf',[0.7 1.1 1.5]
+MF3='High':'trimf',[1.3 2.2 2.2]
+
+[Output1]
+Name='Asthma_Level'
+Range=[0 14]
+NumMFs=3
+MF1='Low':'trimf',[0 0 5]
+MF2='Moderate':'trimf',[3 6 9]
+MF3='High':'trimf',[7 14 14]
+
+[Rules]
+3 1 1, 2 (1) : 1
+3 1 2, 2 (1) : 1
+3 1 3, 3 (1) : 1
+3 2 1, 2 (1) : 1
+3 2 2, 2 (1) : 1
+3 2 3, 3 (1) : 1
+3 3 1, 3 (1) : 1
+3 3 2, 3 (1) : 1
+3 3 3, 3 (1) : 1
+2 1 1, 1 (1) : 1
+2 1 2, 2 (1) : 1
+2 1 3, 2 (1) : 1
+2 2 1, 2 (1) : 1
+2 2 2, 2 (1) : 1
+2 2 3, 2 (1) : 1
+2 3 1, 2 (1) : 1
+2 3 2, 3 (1) : 1
+2 3 3, 3 (1) : 1
+1 1 1, 1 (1) : 1
+1 1 2, 1 (1) : 1
+1 1 3, 2 (1) : 1
+1 2 1, 1 (1) : 1
+1 2 2, 2 (1) : 1
+1 2 3, 2 (1) : 1
+1 3 1, 2 (1) : 1
+1 3 2, 2 (1) : 1
+1 3 3, 3 (1) : 1
